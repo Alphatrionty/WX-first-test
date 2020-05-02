@@ -1,0 +1,43 @@
+<!--pages/demo03/demo03.wxml-->
+<!-- 
+  1 text相当于web中的span标签 行内元素 不会换行
+  2 view相当与web中的div标签 块级元素 会换行
+ -->
+<!-- <text>1</text>
+<text>2</text>
+<view>1</view>
+<view>2</view> -->
+
+<!-- 字符串 -->
+<view>{{msg}}</view>
+<!-- 数字类型 -->
+<view>{{num}}</view>
+<!-- 对象类型 -->
+<view>{{person.age}}</view>
+
+<!-- 在标签的属性中使用 -->
+<view data-num="{{num}}">自定义属性</view>
+
+<!-- 
+使用bool类型充当属性 checked
+1 字符串和花括号之间不能有空格，否则会识别失败
+<checkbox checked=" {{true}}"></checkbox>
+-->
+<view>
+  <checkbox checked="{{true}}"></checkbox>
+</view>
+
+<!-- 
+列表循环
+1 wx:for="{{数组或对象}}" wx:for-item="循环项的名称" wx:for-index="循环项的索引"
+2 wx:key="唯一的值" 用来提高渲染性能
+  wx:key="*this" 表示循环项 【1，2，3，55，4】
+3 当出现数组的嵌套循环时 item和index不要重名
+4 当只有一层循环时，wx:for-item="item" wx:for-index="index" 可以省略
+ -->
+ <view>
+  <view wx:for="{{list}}" wx:key="id">
+    索引:{{index}}
+  值:{{item.name}}
+  </view>
+ </view>
